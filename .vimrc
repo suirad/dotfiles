@@ -16,7 +16,7 @@ call vundle#begin()
     Plugin 'neoclide/coc.nvim' " Need to switch to release branch
     Plugin 'psliwka/vim-smoothie'
     Plugin 'nvim-lua/plenary.nvim' " Telescope dependency
-    Plugin 'nvim-telescope/telescope.nvim'
+    Plugin 'nvim-telescope/telescope.nvim' " Requires Neovim 7.0+
     Plugin 'sbdchd/neoformat'
     Plugin 'dbeniamine/cheat.sh-vim'
     Plugin 'mbbill/undotree'
@@ -31,7 +31,7 @@ call vundle#begin()
     Plugin 'zah/nim.vim'
     Plugin 'LnL7/vim-nix'
     Plugin 'fatih/vim-go'
-    " Rust via coc-rust?
+    " Rust via coc-rust
 
 call vundle#end()
 
@@ -53,14 +53,6 @@ nnoremap <silent> <leader>/ :nohlsearch<Bar>:echo<CR>
 colorscheme desert
 set statusline+=%#warningmsg#
 set statusline+=%*
-let g:lightline = {
-      \ 'colorscheme': 'desert',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"R":""}',
-      \ },
-      \ 'separator': { 'left': '>', 'right': '<' },
-      \ 'subseparator': { 'left': '>', 'right': '<' }
-      \ }
 set laststatus=2
 if !has('gui_running')
 	set t_co=256
@@ -70,11 +62,7 @@ if has('mouse')
 endif
 
 let mapleader = ","
-nmap <leader><CTRL><TAB> :tabNext<CR>
-nmap <leader><CTRL><SHIFT><TAB> :tabPrevious<CR>
 let g:rustfmt_autosave = 1
-let g:asyncrun_open = 15
-let g:asyncrun_save = 1
 set backspace=indent,eol,start
 set relativenumber
 set wildmenu
@@ -228,6 +216,9 @@ nnoremap <silent> <space>X  :<C-u>close<CR>
 nnoremap <silent> <space>V  :<C-u>vsplit<CR>
 nnoremap <silent> <space>S  :<C-u>split<CR>
 
+"/!!!!!!!!!!!!! coc specific
+
+" Some color mapping
 highlight Pmenu ctermbg=grey
 highlight CocErrorSign ctermfg=Black ctermbg=grey
 

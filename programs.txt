@@ -1,0 +1,5 @@
+fish
+ripgrep
+nvim
+nodejs
+npm
