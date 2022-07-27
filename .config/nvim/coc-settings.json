@@ -1,0 +1,29 @@
+{ "languageserver": {
+      "nim": {
+        "command": "nimlsp",
+        "filetypes": ["nim", "nims", "nimble"]
+      },
+
+      "zig": {
+        "command": "zls",
+        "filetypes": ["zig"]
+      },
+
+
+      "dlang": {
+          "command": "dls",
+          "filetypes": ["d", "di"]
+      },
+
+      "nix": {
+          "command": "rnix-lsp",
+          "filetypes": ["nix"]
+      },
+      "odin": {
+        "command": "ols",
+        "filetypes": ["odin"],
+        "rootPatterns": ["ols.json"]
+      }
+    },
+  "workspace.workspaceFolderCheckCwd": true
+}

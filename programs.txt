@@ -3,3 +3,4 @@ ripgrep
 nvim
 nodejs
 npm
+bat
