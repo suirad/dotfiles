@@ -21,7 +21,8 @@ call vundle#begin()
     Plugin 'dbeniamine/cheat.sh-vim'
     Plugin 'mbbill/undotree'
     Plugin 'jbyuki/instant.nvim'
-    " Git via coc-git
+    Plugin 'vimwiki/vimwiki'
+    Plugin 'phaazon/mind.nvim'
 
     " * Languages
     Plugin 'sheerun/vim-polyglot'
@@ -32,7 +33,8 @@ call vundle#begin()
     Plugin 'zah/nim.vim'
     Plugin 'LnL7/vim-nix'
     Plugin 'fatih/vim-go'
-    " Rust via coc-rust
+
+    " coc-rust-analyzer coc-json coc-toml coc-pyright coc-git
 
 call vundle#end()
 
@@ -257,3 +259,16 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <F5> :UndotreeToggle<CR>
 
 let g:instant_username = "darius"
+let g:vimwiki_list = [{'path': '~/wiki/', 'path_html': '~/wiki_rendered/', 'syntax': 'markdown', 'ext': '.md', 'custom_wiki2html': 'wiki2html.sh'}]
+let g:vimwiki_global_ext = 0
+
+
+"function! SetMarkdownOptions()
+"  call VimWikiVar('syntax', 'markdown')
+"  call VimWikiVar('custom_wiki2html', 'wiki2html.sh')
+"  set syntax=markdown
+"endfunction
+"autocmd FileType vimwiki call SetMarkdownOptions()
+
+autocmd BufWinEnter *.md setlocal syntax=markdown
+
