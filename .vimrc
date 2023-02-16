@@ -8,32 +8,28 @@ call vundle#begin()
 
     " * Essentials
     " Plugin 'ervandew/supertab' " Swaped with coc
-    " Plugin 'ctrlpvim/ctrlp.vim' Swapped wtith Telescope
+    Plugin 'neoclide/coc.nvim' " Need to switch to release branch
     Plugin 'christoomey/vim-tmux-navigator'
     Plugin 'vim-airline/vim-airline'
-
-    " * Niceties
-    Plugin 'neoclide/coc.nvim' " Need to switch to release branch
-    Plugin 'psliwka/vim-smoothie'
+    Plugin 'sheerun/vim-polyglot'
+    " Plugin 'ctrlpvim/ctrlp.vim' Swapped with Telescope
     Plugin 'nvim-lua/plenary.nvim' " Telescope dependency
     Plugin 'nvim-telescope/telescope.nvim'
-    Plugin 'sbdchd/neoformat'
-    Plugin 'dbeniamine/cheat.sh-vim'
+
+    " * Niceties
+    Plugin 'psliwka/vim-smoothie'
     Plugin 'mbbill/undotree'
+    Plugin 'tpope/vim-repeat' " Leap Dependency
+    Plugin 'ggandor/leap.nvim'
     Plugin 'jbyuki/instant.nvim'
-    Plugin 'vimwiki/vimwiki'
-    Plugin 'phaazon/mind.nvim'
+
 
     " * Languages
-    Plugin 'sheerun/vim-polyglot'
-    Plugin 'slashmili/alchemist.vim'
-    Plugin 'dleonard0/pony-vim-syntax'
-    Plugin 'JuliaEditorSupport/julia-vim'
     Plugin 'ziglang/zig.vim'
     Plugin 'zah/nim.vim'
-    Plugin 'LnL7/vim-nix'
     Plugin 'fatih/vim-go'
 
+    " coc extras:
     " coc-rust-analyzer coc-json coc-toml coc-pyright coc-git
 
 call vundle#end()
@@ -52,7 +48,6 @@ set autoindent
 set showmatch
 set hlsearch
 set ffs=unix
-nnoremap <silent> <leader>/ :nohlsearch<Bar>:echo<CR>
 colorscheme desert
 set statusline+=%#warningmsg#
 set statusline+=%*
@@ -239,36 +234,32 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 set completeopt+=menuone,noinsert
 "!!!!!!!!!!!!!
 
+highlight Pmenu ctermbg=grey
+highlight CocErrorSign ctermfg=Black ctermbg=grey
+
+" !!! Custom bindings
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" Clear search results
 nnoremap <silent> <space>/  :<C-u>nohlsearch<CR>
+
+"Ez Splits
 nnoremap <silent> <space>X  :<C-u>close<CR>
 nnoremap <silent> <space>V  :<C-u>vsplit<CR>
 nnoremap <silent> <space>S  :<C-u>split<CR>
 
-highlight Pmenu ctermbg=grey
-highlight CocErrorSign ctermfg=Black ctermbg=grey
 
-" Find files using Telescope command-line sugar.
+" telescope helpers
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+" extra undo is nice for when you cant type ctrl-r
+nnoremap U <cmd>redo<cr>
+
 " undotree binding
 nnoremap <F5> :UndotreeToggle<CR>
 
 let g:instant_username = "darius"
-let g:vimwiki_list = [{'path': '~/wiki/', 'path_html': '~/wiki_rendered/', 'syntax': 'markdown', 'ext': '.md', 'custom_wiki2html': 'wiki2html.sh'}]
-let g:vimwiki_global_ext = 0
-
-
-"function! SetMarkdownOptions()
-"  call VimWikiVar('syntax', 'markdown')
-"  call VimWikiVar('custom_wiki2html', 'wiki2html.sh')
-"  set syntax=markdown
-"endfunction
-"autocmd FileType vimwiki call SetMarkdownOptions()
-
-autocmd BufWinEnter *.md setlocal syntax=markdown
 
