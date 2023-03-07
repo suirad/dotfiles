@@ -15,6 +15,7 @@ call vundle#begin()
     " Plugin 'ctrlpvim/ctrlp.vim' Swapped with Telescope
     Plugin 'nvim-lua/plenary.nvim' " Telescope dependency
     Plugin 'nvim-telescope/telescope.nvim'
+    Plugin 'RaafatTurki/hex.nvim' " Hex editor
 
     " * Niceties
     Plugin 'psliwka/vim-smoothie'
@@ -248,7 +249,6 @@ nnoremap <silent> <space>X  :<C-u>close<CR>
 nnoremap <silent> <space>V  :<C-u>vsplit<CR>
 nnoremap <silent> <space>S  :<C-u>split<CR>
 
-
 " telescope helpers
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -257,6 +257,8 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " extra undo is nice for when you cant type ctrl-r
 nnoremap U <cmd>redo<cr>
+
+nnoremap <silent><leader>xx <cmd>HexToggle<cr>
 
 " undotree binding
 nnoremap <F5> :UndotreeToggle<CR>
