@@ -2,38 +2,36 @@ set shell=/bin/bash
 set nocompatible
 set encoding=utf-8
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-    Plugin 'VundleVim/Vundle.vim'
-
+call plug#begin()
     " * Essentials
     " Plugin 'ervandew/supertab' " Swaped with coc
-    Plugin 'neoclide/coc.nvim' " Need to switch to release branch
-    Plugin 'christoomey/vim-tmux-navigator'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'sheerun/vim-polyglot'
-    " Plugin 'ctrlpvim/ctrlp.vim' Swapped with Telescope
-    Plugin 'nvim-lua/plenary.nvim' " Telescope dependency
-    Plugin 'nvim-telescope/telescope.nvim'
-    Plugin 'RaafatTurki/hex.nvim' " Hex editor
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'vim-airline/vim-airline'
+    Plug 'nvim-lua/plenary.nvim' | Plug 'nvim-telescope/telescope.nvim'
+    Plug 'RaafatTurki/hex.nvim' " Hex editor
 
     " * Niceties
-    Plugin 'psliwka/vim-smoothie'
-    Plugin 'mbbill/undotree'
-    Plugin 'tpope/vim-repeat' " Leap Dependency
-    Plugin 'ggandor/leap.nvim'
-    Plugin 'jbyuki/instant.nvim'
+    Plug 'psliwka/vim-smoothie'
+    Plug 'mbbill/undotree'
+    Plug 'tpope/vim-repeat' | Plug 'ggandor/leap.nvim'
+    " Plug 'jbyuki/instant.nvim'
 
 
     " * Languages
-    Plugin 'ziglang/zig.vim'
-    Plugin 'zah/nim.vim'
-    Plugin 'fatih/vim-go'
+    Plug 'cstrahan/vim-capnp'
+    Plug 'ziglang/zig.vim'
 
     " coc extras:
     " coc-rust-analyzer coc-json coc-toml coc-pyright coc-git
 
-call vundle#end()
+    " Old stuff
+    " Plug 'zah/nim.vim'
+    " Plug 'fatih/vim-go'
+    " Plugin 'sheerun/vim-polyglot' Swapped with treesitter
+    " Plugin 'ctrlpvim/ctrlp.vim' Swapped with Telescope
+call plug#end()
 
 syntax on
 set number
@@ -263,5 +261,5 @@ nnoremap <silent><leader>xx <cmd>HexToggle<cr>
 " undotree binding
 nnoremap <F5> :UndotreeToggle<CR>
 
-let g:instant_username = "darius"
+" let g:instant_username = "darius"
 
