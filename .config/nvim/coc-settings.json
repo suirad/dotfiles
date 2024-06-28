@@ -25,5 +25,5 @@
         "rootPatterns": ["ols.json"]
       }
     },
-  "workspace.workspaceFolderCheckCwd": true
+    "workspace.workspaceFolderCheckCwd": true,
 }

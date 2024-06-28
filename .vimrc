@@ -10,14 +10,22 @@ call plug#begin()
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'vim-airline/vim-airline'
     Plug 'nvim-lua/plenary.nvim' | Plug 'nvim-telescope/telescope.nvim'
+<<<<<<< Updated upstream
     Plug 'RaafatTurki/hex.nvim' " Hex editor
+=======
+>>>>>>> Stashed changes
 
     " * Niceties
     Plug 'psliwka/vim-smoothie'
     Plug 'mbbill/undotree'
     Plug 'tpope/vim-repeat' | Plug 'ggandor/leap.nvim'
     " Plug 'jbyuki/instant.nvim'
+<<<<<<< Updated upstream
 
+=======
+    "Plug 'RaafatTurki/hex.nvim' " Hex editor
+    Plug 'hedyhli/outline.nvim'
+>>>>>>> Stashed changes
 
     " * Languages
     Plug 'cstrahan/vim-capnp'
