@@ -22,6 +22,7 @@ call plug#begin()
     " * Languages
     Plug 'cstrahan/vim-capnp'
     Plug 'ziglang/zig.vim'
+    Plug 'NoahTheDuke/vim-just'
     Plug 's3rvac/vim-syntax-yara'
 
     " coc extras:
